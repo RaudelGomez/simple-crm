@@ -1,0 +1,42 @@
+@import '../helpers.scss';
+
+.mat-drawer-container{
+  height: 100vh;
+}
+
+.sidenav{
+  width: 300px;
+}
+
+.logo-container{
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.25);
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+  @extend .d-center;
+}
+
+mat-toolbar, mat-toolbar-row{
+  min-height: 56px;
+  height: 56px;
+  background-color: $blue;
+  color:$white;
+}
+
+.menu-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li{
+    padding: 16px;
+    @extend .d-center;
+    justify-content: flex-start;
+    cursor: pointer;
+    gap:16px;
+
+    &:hover{
+      background-color: rgba($color: #000000, $alpha: 0.25);
+    }
+  }
+}
