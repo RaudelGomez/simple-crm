@@ -1,3 +1,10 @@
 section{
   padding: 24px;
+
+  mat-dialog-content{
+    padding: 0 0 16px 0;
+    >div{
+      margin-top: 8px;
+    }
+  }
 }
