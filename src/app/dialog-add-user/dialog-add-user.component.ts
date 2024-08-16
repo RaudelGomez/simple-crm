@@ -5,10 +5,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../models/user.class';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 
 
 @Component({
@@ -24,17 +23,17 @@ export class DialogAddUserComponent {
   birthDate!: Date;
 
   user: User = new User();
-  public firestore: Firestore = inject(Firestore);
+  // public firestore: Firestore = inject(Firestore);
 
   constructor(){
     // const aCollection = collection(this.firestore, 'users');
     // console.log(collectionData(aCollection));
-    this.getUsers();
+    // this.getUsers();
   }
 
-  getUsers(){
-    return collection(this.firestore, 'users');
-  }
+  // getUsers(){
+  //   return collection(this.firestore, 'users');
+  // }
 
   saveUser(){
     this.user.birthDate = this.birthDate.getTime();
