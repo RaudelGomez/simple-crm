@@ -21,29 +21,14 @@ import { UserService } from '../services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogAddUserComponent {
-  birthDate!: Date;
+  birthDate?: Date;
 
   user: User = new User();
-  // public firestore: Firestore = inject(Firestore);
 
-  constructor(public userService: UserService){
-    // const aCollection = collection(this.firestore, 'users');
-    // console.log(collectionData(aCollection));
-    // this.getUsers();
-  }
-
-  // getUsers(){
-  //   return collection(this.firestore, 'users');
-  // }
+  constructor(public userService: UserService){}
 
   saveUser(){
-    this.user.birthDate = this.birthDate.getTime();
-       
-    // this.firestore
-    //   .collection('users')
-    //   .add(this.user.toJSON())
-    //   .then((result:any)=>{
-    // })
-   
+    this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0 ;  
+    this.userService.addUser(this.user);
   }
 }

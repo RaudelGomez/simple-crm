@@ -23,9 +23,7 @@ export class UserComponent {
   dialog = inject(MatDialog);
 
 
-  constructor(public userService: UserService){
-    // console.log(this.userService.users$);
-  }
+  constructor(public userService: UserService){}
 
   openDialog(){
     this.dialog.open(DialogAddUserComponent)
