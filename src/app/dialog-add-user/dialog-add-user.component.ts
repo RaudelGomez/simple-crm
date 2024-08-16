@@ -1,13 +1,14 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../models/user.class';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class DialogAddUserComponent {
   user: User = new User();
   // public firestore: Firestore = inject(Firestore);
 
-  constructor(){
+  constructor(public userService: UserService){
     // const aCollection = collection(this.firestore, 'users');
     // console.log(collectionData(aCollection));
     // this.getUsers();

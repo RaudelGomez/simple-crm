@@ -15,15 +15,15 @@ export class User {
     this.city = obj ? obj.city : '';
   }
 
-  toJSON(){
-    return{
-      firstName: this.firstName,
-      lastName: this.lastName,
-      birthDate: this.birthDate,
-      street: this.street,
-      zipCode: this.zipCode,
-      city: this.city,
-    }
-  }
+  // toJSON(){
+  //   return{
+  //     firstName: this.firstName,
+  //     lastName: this.lastName,
+  //     birthDate: this.birthDate,
+  //     street: this.street,
+  //     zipCode: this.zipCode,
+  //     city: this.city,
+  //   }
+  // }
 
 }
