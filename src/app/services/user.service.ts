@@ -11,6 +11,7 @@ import { User } from '../models/user.class';
 export class UserService {
   private usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public users$: Observable<User[]> = this.usersSubject.asObservable();
+  loading:boolean = false;
 
   firestore: Firestore = inject(Firestore);
 
@@ -18,11 +19,11 @@ export class UserService {
     this.loadUsers();
   }
 
-  private loadUsers(){
+  private async loadUsers(){
     //CollectionData is an observable in Firestore. Its not necesary next()
     collectionData(this.getUserRef(), {idField: 'id'}).pipe(
       map((items: any[]) => {
-        return items.map(item => this.transformToUser(item)); // Transform data in a User[]
+        return items.map(item => this.toJSON(item)); // Transform data in a User[]
       })
     ).subscribe(users => {
       console.log(users);
@@ -38,7 +39,9 @@ export class UserService {
     await addDoc((this.getUserRef()), {...user}).catch(
       (err)=> {console.error(err);}
     ).then(
-      (docRef)=> {console.log(`user created with id:${docRef!.id}`)}
+      (docRef)=> {
+        console.log(`user created with id:${docRef!.id}`); 
+      }
     );
   }
 
@@ -61,11 +64,11 @@ export class UserService {
   }
 
   /**
-   * This function transfrom the data of firetore in a object type User
+   * This function transfrom the data of firetore in a JSON type User
    * @param item - Object in raw from Firebase
    * @returns Teturn a object type User
    */
-  private transformToUser(item: any): User {
+  private toJSON(item: any): User {
     return {
       id: item.id,
       firstName: item.firstName || '',

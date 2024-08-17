@@ -1,5 +1,13 @@
 section{
   padding: 24px;
+  position: relative;
+
+  mat-progress-bar{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+  }
 
   mat-dialog-content{
     padding: 0 0 16px 0;
