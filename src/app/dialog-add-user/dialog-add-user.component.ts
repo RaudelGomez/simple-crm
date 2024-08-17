@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef  } from '@angular/core';
-import { MatDialogContent, MatDialogActions } from '@angular/material/dialog';
+import { MatDialogContent, MatDialogActions, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -26,10 +26,11 @@ export class DialogAddUserComponent {
   birthDate?: Date;
   user: User = new User();
 
-  constructor(public userService: UserService, private cdr:ChangeDetectorRef){}
+  constructor(public userService: UserService, private cdr:ChangeDetectorRef, public dialogRef: MatDialogRef<DialogAddUserComponent>){}
 
   async saveUser(){
     this.userService.loading = true;
+    //Forcing change of loading = true;
     this.cdr.detectChanges(); 
     this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0 ; 
     try { 
@@ -39,7 +40,9 @@ export class DialogAddUserComponent {
     } finally {
       setTimeout(() => {
         this.userService.loading = false;
+        //Forcing change of loading = false;
         this.cdr.detectChanges(); 
+        this.dialogRef.close();
       }, 500);
     }
   }
