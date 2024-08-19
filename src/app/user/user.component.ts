@@ -8,11 +8,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { UserService } from '../services/user.service';
 import { CommonModule } from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, CommonModule],
+  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, CommonModule, MatCardModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })

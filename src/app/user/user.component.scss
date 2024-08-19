@@ -3,3 +3,37 @@
   right: 56px;
   bottom: 56px;
 }
+
+.user-table{
+  border-collapse: collapse;
+  thead{
+    tr{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      th{
+        text-align: start;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: 500; 
+      }
+    }
+  }
+  tbody{
+    tr{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      td{
+        text-align: start;
+        font-weight: 400;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.04);
+        transition: all 75ms ease-in-out;
+      }
+    }
+  }
+}

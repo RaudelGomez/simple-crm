@@ -1,14 +1,27 @@
-<p>user works!</p>
-
 <button mat-fab color="primary" class="add-user-button" matTooltip="Add user"
 [matTooltipPosition]="position.value!" (click)="openDialog()">
   <mat-icon>add</mat-icon>
 </button>
 
-<ul>
-  @for (item of (this.userService.users$ | async); track $index) {
-  <li class="text">
-    {{item.firstName}}
-  </li>
-  }
-</ul>
+<mat-card appearance="outlined">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th><mat-card-content>Name</mat-card-content></th>
+        <th><mat-card-content>Email</mat-card-content></th>
+        <th><mat-card-content>City</mat-card-content></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of (this.userService.users$ | async); track $index) {
+        <tr>
+          <td><mat-card-content>{{user.firstName}}</mat-card-content></td>
+          <td><mat-card-content>{{user.lastName}}</mat-card-content></td>
+          <td><mat-card-content>{{user.city}}</mat-card-content></td>
+        </tr>        
+      }
+    </tbody>
+  </table>
+</mat-card>
+
+
