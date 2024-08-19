@@ -15,11 +15,9 @@ export class UserService {
 
   firestore: Firestore = inject(Firestore);
 
-  constructor() { 
-    this.loadUsers();
-  }
+  constructor() {}
 
-  private async loadUsers(){
+  async loadUsers(){
     //CollectionData is an observable in Firestore. Its not necesary next()
     collectionData(this.getUserRef(), {idField: 'id'}).pipe(
       map((items: any[]) => {
