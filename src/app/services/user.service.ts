@@ -71,6 +71,7 @@ export class UserService {
       id: item.id,
       firstName: item.firstName || '',
       lastName: item.lastName || '',
+      email: item.email || '',
       street: item.street || '',
       zipCode: item.zipCode || 0,
       birthDate: item.birthDate || 0,

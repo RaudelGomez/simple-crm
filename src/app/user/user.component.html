@@ -15,8 +15,8 @@
     <tbody>
       @for (user of (this.userService.users$ | async); track $index) {
         <tr>
-          <td><mat-card-content>{{user.firstName}}</mat-card-content></td>
-          <td><mat-card-content>{{user.lastName}}</mat-card-content></td>
+          <td><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
+          <td><mat-card-content>{{user.email}}</mat-card-content></td>
           <td><mat-card-content>{{user.city}}</mat-card-content></td>
         </tr>        
       }
