@@ -14,6 +14,11 @@
   padding-right: 16px;
   min-height: 56px;
   @extend .d-center;
+  img{
+    padding: 16px;
+    max-width: 100%;
+    height: 48px;
+  }
 }
 
 mat-toolbar, mat-toolbar-row{
