@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { addDoc, collectionData, doc, Firestore } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/user.class';
 
 
@@ -9,8 +9,10 @@ import { User } from '../models/user.class';
   providedIn: 'root'
 })
 export class UserService {
+  //All Users
   private usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public users$: Observable<User[]> = this.usersSubject.asObservable();
+
   loading:boolean = false;
 
   firestore: Firestore = inject(Firestore);
@@ -24,7 +26,7 @@ export class UserService {
         return items.map(item => this.toJSON(item)); // Transform data in a User[]
       })
     ).subscribe(users => {
-      console.log(users);
+      // console.log(users);
       this.usersSubject.next(users); // Update the data to the BehaviourSubject
     });
   }
@@ -57,7 +59,7 @@ export class UserService {
    * @param docId - id of the doc
    * @returns A doc in a collection
    */
-  getSingleUser(colId:string, docId: string){
+  getSingleUserRef(colId:string, docId: string){
     return doc(collection(this.firestore, colId), docId);
   }
 

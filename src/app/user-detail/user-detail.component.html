@@ -1,10 +1,15 @@
+<section>
+@if (loading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+
 <mat-card appearance="outlined" class="user-detail-header">
   <figure>
     <img src="./assets/img/user.png" alt="User logo">
   </figure>
   <mat-card-content class="user-details">
-    <h2>Max Mustermann</h2>
-    <p>email&#64;gmail.com</p>
+    <h2>{{user$?.firstName}} {{user$?.lastName}}</h2>
+    <p>{{user$?.email}}</p>
   </mat-card-content> 
 </mat-card>
 
@@ -14,8 +19,9 @@
   </mat-card-header>
   <mat-card-content>
     <p>
-      Krieglesteinerstrasse 18 <br>
-      81476 München
+      {{user$?.street}} <br>
+      {{user$?.zipCode}} {{user$?.city}}
     </p>
   </mat-card-content>
 </mat-card>
+</section>
