@@ -75,7 +75,6 @@ export class UserService {
       console.log("No such document!");
       return
     }
-    
   }
 
   /**

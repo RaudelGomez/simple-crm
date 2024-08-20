@@ -4,11 +4,14 @@ import { ActivatedRoute } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { User } from "../models/user.class";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
 	selector: "app-user-detail",
 	standalone: true,
-	imports: [MatCardModule, MatProgressBarModule],
+	imports: [MatCardModule, MatProgressBarModule, MatIconModule, MatButtonModule, MatMenuModule],
 	templateUrl: "./user-detail.component.html",
 	styleUrl: "./user-detail.component.scss",
 })
@@ -34,6 +37,14 @@ export class UserDetailComponent {
 			}
 			this.loading = false;
 		});
+	}
+
+	editUserDetails(){
+
+	}
+
+	editAddressDetails(){
+
 	}
 
 }
