@@ -7,10 +7,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { User } from '../models/user.class';
-import { UserService } from '../services/user.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
+import { User } from '../models/user.class';
+import { UserService } from '../services/user.service';
 
 
 @Component({
