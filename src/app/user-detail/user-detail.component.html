@@ -8,8 +8,8 @@
     <img src="./assets/img/user.png" alt="User logo">
   </figure>
   <mat-card-content class="user-details">
-    <h2>{{user$?.firstName}} {{user$?.lastName}}</h2>
-    <p>{{user$?.email}}</p>
+    <h2>{{user?.firstName}} {{user?.lastName}}</h2>
+    <p>{{user?.email}}</p>
   </mat-card-content> 
 </mat-card>
 
@@ -19,8 +19,8 @@
   </mat-card-header>
   <mat-card-content>
     <p>
-      {{user$?.street}} <br>
-      {{user$?.zipCode}} {{user$?.city}}
+      {{user?.street}} <br>
+      {{user?.zipCode}} {{user?.city}}
     </p>
   </mat-card-content>
 </mat-card>

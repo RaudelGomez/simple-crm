@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collectionData, doc, Firestore } from '@angular/fire/firestore';
+import { addDoc, collectionData, doc, Firestore, getDoc } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/user.class';
@@ -61,6 +61,21 @@ export class UserService {
    */
   getSingleUserRef(colId:string, docId: string){
     return doc(collection(this.firestore, colId), docId);
+  }
+
+  async getUserDataBase(colId:string, docId: string){
+    const docRef = this.getSingleUserRef(colId, docId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      return docSnap.data();
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+      return
+    }
+    
   }
 
   /**
