@@ -27,9 +27,8 @@ export class DialogEditAddressComponent {
   async saveUser(){
     await this.userService.updateUser('users', this.userId, this.user)
     // Forzar la detección de cambios
-    this.cdr.detectChanges(); 
-    await this.userService.getUserDataBase('users', this.userId);
-    this.cdr.detectChanges(); 
-
+    // this.cdr.detectChanges(); 
+    // await this.userService.getUserDataBase('users', this.userId);
+    // this.cdr.detectChanges(); 
   }
 }

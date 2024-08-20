@@ -26,12 +26,19 @@ export class UserDetailComponent {
 	dialog = inject(MatDialog);
 
 	/**
-	 * This function load all user from the service.
+	 * This function subscribe the user found from the service to the observable Observable.
 	 * @param route - Module from Angular for take params and query from URL
 	 * @param userService - A User Service
 	 */
 	constructor(private route: ActivatedRoute, private userService: UserService) {
-		this.userService.loadUsers();
+		// Escucha los cambios en la lista de usuarios
+		this.userService.users$.subscribe(users => {
+			// Encuentra el usuario actualizado por su ID
+			const user = users.find(u => u.id === this.userId);
+			if (user) {
+				this.user = new User(user); // Actualiza el usuario si hay cambios
+			}
+		});
 	}
 
 	/**
