@@ -5,7 +5,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 
 export const routes: Routes = [
   {path: '', component: DashboardComponent},
-  {path: 'dashboard', component: DashboardComponent},
   {path: 'user', component: UserComponent},
   {path: 'user/:id', component: UserDetailComponent}
 ];

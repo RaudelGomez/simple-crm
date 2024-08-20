@@ -30,7 +30,6 @@ export class DialogEditUserComponent {
   constructor(public userService: UserService, public dialogRef: MatDialogRef<DialogEditUserComponent>){}
 
   ngOnInit(): void {
-    console.log(this.user);
     this.birthDate = new Date(this.birthDateNumber);  
   }
 
