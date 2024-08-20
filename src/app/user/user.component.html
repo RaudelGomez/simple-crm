@@ -10,14 +10,18 @@
         <th><mat-card-content>Name</mat-card-content></th>
         <th><mat-card-content>E-Mail</mat-card-content></th>
         <th><mat-card-content>City</mat-card-content></th>
+        <th><mat-card-content>Delete</mat-card-content></th>
       </tr>
     </thead>
     <tbody>
       @for (user of (this.userService.users$ | async); track $index) {
-        <tr [routerLink]="['/user/'+ user.id]">
-          <td><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
-          <td><mat-card-content>{{user.email}}</mat-card-content></td>
-          <td><mat-card-content>{{user.city}}</mat-card-content></td>
+        <tr>
+          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
+          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.email}}</mat-card-content></td>
+          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.city}}</mat-card-content></td>
+          <td><mat-card-content>
+            <mat-icon (click)="this.userService.deleteUser('users', user.id)" >delete</mat-icon>
+          </mat-card-content></td>
         </tr>        
       }
     </tbody>

@@ -32,5 +32,4 @@ export class UserComponent {
   openDialog(){
     this.dialog.open(DialogAddUserComponent)
   }
-
 }

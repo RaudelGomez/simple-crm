@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collectionData, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collectionData, deleteDoc, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/user.class';
@@ -85,6 +85,11 @@ export class UserService {
     await updateDoc(docRef, {...userJSON, id: docId});
     this.loadUsers();
     this.loading = false;
+  }
+
+  async deleteUser(colId:string, docId: string){
+    await deleteDoc( this.getSingleUserRef(colId, docId));
+    this.loadUsers();
   }
 
   /**
