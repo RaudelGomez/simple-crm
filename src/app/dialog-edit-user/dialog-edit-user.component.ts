@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,14 +20,23 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './dialog-edit-user.component.scss'
 })
 export class DialogEditUserComponent {
-  loading: boolean = false;
   user!: User;
+  userId!: string;
+  birthDateNumber!: number;
   birthDate!: Date;
 
-  constructor(public userService: UserService, private cdr:ChangeDetectorRef, public dialogRef: MatDialogRef<DialogEditUserComponent>){
+  // this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0 ; 
+
+  constructor(public userService: UserService, public dialogRef: MatDialogRef<DialogEditUserComponent>){}
+
+  ngOnInit(): void {
+    console.log(this.user);
+    this.birthDate = new Date(this.birthDateNumber);  
   }
 
-  saveUser(){
-    
+  async saveUser(){
+    this.user.birthDate = this.birthDate.getTime();
+    await this.userService.updateUser('users', this.userId, this.user);
+    this.dialogRef.close();
   }
 }

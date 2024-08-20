@@ -78,10 +78,13 @@ export class UserService {
   }
 
   async updateUser(colId:string, docId: string, user: User){
+    this.loading = true;
     const docRef = this.getSingleUserRef(colId, docId);
-    let userJSON = this.toJSON(user)
+    let userJSON = this.toJSON(user);
+    console.log(userJSON);
     await updateDoc(docRef, {...userJSON, id: docId});
     this.loadUsers();
+    this.loading = false;
   }
 
   /**
