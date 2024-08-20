@@ -25,10 +25,21 @@ export class UserDetailComponent {
 
 	dialog = inject(MatDialog);
 
+	/**
+	 * This function load all user from the service.
+	 * @param route - Module from Angular for take params and query from URL
+	 * @param userService - A User Service
+	 */
 	constructor(private route: ActivatedRoute, private userService: UserService) {
 		this.userService.loadUsers();
 	}
 
+	/**
+	 * This function teak the params :id from the url and makes a query in 
+	 * Firebase to bring the user. 
+	 * With new User(userData) will be created an Instance of user and the variable user
+	 * will be initialized
+	 */
 	async ngOnInit() {
 		this.route.params.subscribe(async (params) => {
 			this.userId = params["id"];
@@ -44,14 +55,23 @@ export class UserDetailComponent {
 		});
 	}
 
+	/**
+	 * This function open a dialog with the data of the current user and send it to the DialogEditUserComponent. 
+	 * new User(this.user) makes a copy of the user and this one will be taken as model 
+	 */
 	editUserDetails(){
 		const dialog = this.dialog.open(DialogEditUserComponent);
-		dialog.componentInstance.user = this.user;
+		dialog.componentInstance.user = new User(this.user);
 	}
 
+	/**
+	 * This function open a dialog with the data of the current user and send it to the DialogEditAddressComponent. 
+	 * new User(this.user) makes a copy of the user and this one will be taken as model 
+	 */
 	editAddressDetails(){
 		const dialog = this.dialog.open(DialogEditAddressComponent);
-		dialog.componentInstance.user = this.user;
+		dialog.componentInstance.user = new User(this.user);
+		dialog.componentInstance.userId = this.userId;
 	}
 
 }

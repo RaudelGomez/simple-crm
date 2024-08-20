@@ -27,7 +27,7 @@
     <div>
       <mat-form-field appearance="outline" class="width-100">
         <mat-label>Birth Date</mat-label>
-        <input [disabled]="this.userService.loading" [(ngModel)]="user.birthDate" matInput [matDatepicker]="picker1">
+        <input [disabled]="this.userService.loading" [(ngModel)]="birthDate" matInput [matDatepicker]="picker1">
         <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>

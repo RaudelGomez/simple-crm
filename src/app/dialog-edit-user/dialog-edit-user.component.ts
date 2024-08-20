@@ -22,11 +22,12 @@ import { MatInputModule } from '@angular/material/input';
 export class DialogEditUserComponent {
   loading: boolean = false;
   user!: User;
+  birthDate!: Date;
 
-  constructor(public userService: UserService, private cdr:ChangeDetectorRef, public dialogRef: MatDialogRef<DialogEditUserComponent>){}
-
+  constructor(public userService: UserService, private cdr:ChangeDetectorRef, public dialogRef: MatDialogRef<DialogEditUserComponent>){
+  }
 
   saveUser(){
-
+    
   }
 }

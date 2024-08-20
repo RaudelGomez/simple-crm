@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collectionData, doc, Firestore, getDoc } from '@angular/fire/firestore';
+import { addDoc, collectionData, doc, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/user.class';
@@ -10,7 +10,7 @@ import { User } from '../models/user.class';
 })
 export class UserService {
   //All Users
-  private usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  public usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public users$: Observable<User[]> = this.usersSubject.asObservable();
 
   loading:boolean = false;
@@ -75,6 +75,13 @@ export class UserService {
       console.log("No such document!");
       return
     }
+  }
+
+  async updateUser(colId:string, docId: string, user: User){
+    const docRef = this.getSingleUserRef(colId, docId);
+    let userJSON = this.toJSON(user)
+    await updateDoc(docRef, {...userJSON, id: docId});
+    this.loadUsers();
   }
 
   /**
