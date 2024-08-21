@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './dialog-edit-user.component.scss'
 })
 export class DialogEditUserComponent {
-  user!: User;
+  user: User = new User();
   userId!: string;
   birthDateNumber!: number;
   birthDate!: Date;

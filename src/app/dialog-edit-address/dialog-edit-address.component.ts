@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './dialog-edit-address.component.scss',
 })
 export class DialogEditAddressComponent {
-  user!: User;
+  user: User = new User();
   userId!: string;
 
   constructor(public userService: UserService, public dialogRef: MatDialogRef<DialogEditAddressComponent>){}

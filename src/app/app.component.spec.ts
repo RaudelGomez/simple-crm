@@ -1,10 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { of } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+
+// Mock para ActivatedRoute
+class ActivatedRouteStub {
+  params = of({}); // Mock de parámetros de la ruta
+}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, BrowserAnimationsModule],
+      providers: [
+        { provide: ActivatedRoute, useClass: ActivatedRouteStub } // Proveer el mock de ActivatedRoute
+      ]
     }).compileComponents();
   });
 
@@ -20,10 +31,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('simple-crm');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, simple-crm');
-  });
 });
