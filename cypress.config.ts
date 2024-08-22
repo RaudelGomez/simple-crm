@@ -7,5 +7,8 @@ export default defineConfig({
       bundler: "webpack",
     },
     specPattern: "**/*.cy.ts",
+    setupNodeEvents(on, config) {
+      // Implement node event listeners here
+    },
   },
 });

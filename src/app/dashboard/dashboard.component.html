@@ -4,10 +4,10 @@
     <mat-card appearance="outlined" class="card-users-count">
       <mat-card-header>
         <mat-card-title>Users</mat-card-title>
-        <mat-card-subtitle>Amount: {{amountUsers}}</mat-card-subtitle>
+        <mat-card-subtitle data-cy="amount">Amount: {{amountUsers}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions>
-        <button class="button-more" mat-flat-button [routerLink]="['user']" routerLinkActive="router-link-active" >See more</button>
+        <button data-cy="go-users-click" class="button-more" mat-flat-button [routerLink]="['user']" routerLinkActive="router-link-active" >See more</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
