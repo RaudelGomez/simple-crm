@@ -21,6 +21,7 @@ export class UserService {
 
   async loadUsers(){
     //CollectionData is an observable in Firestore. Its not necesary next()
+    console.log('Firestore:', this.firestore); // Añade este log
     collectionData(this.getUserRef(), {idField: 'id'}).pipe(
       map((items: any[]) => {
         return items.map(item => this.toJSON(item)); // Transform data in a User[]
