@@ -1,5 +1,58 @@
 @import '../../helpers.scss';
 
+section{
+  position: relative;
+  height: 90vh;
+  @extend .d-center;
+  .aot{
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    width: 100%;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    z-index: -100;
+  }
+  .headline{
+    margin-top: -240px;
+    h1{
+      text-align: center;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: normal;
+      color: $blue;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+    }
+  }
+}
+
+.arrow-container{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    @extend .d-center;
+    justify-content: end;
+    h3{
+      font-weight: 700;
+      margin: 0 !important;
+      cursor: pointer;
+    }
+    .arrow{
+      margin-right: 16px;
+      animation: arrowMoveRight 0.65s ease-in-out infinite;
+    }
+}
+
+@keyframes arrowMoveRight {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(10px);
+  }
+}
+
 mat-grid-tile {
   background: lightblue;
 }

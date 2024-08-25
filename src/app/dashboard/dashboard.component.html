@@ -1,4 +1,4 @@
-<h2>Dashboard</h2>
+<!-- <h2>Dashboard</h2>
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile>
     <mat-card appearance="outlined" class="card-users-count">
@@ -19,4 +19,14 @@
   <mat-grid-tile>
     <img src="./assets/img/business-pic.jpg" alt="bussines pic">
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
+<section>
+  <div class="arrow-container">
+    <mat-icon class="arrow">double_arrow</mat-icon>
+    <h3 data-cy="amount" [routerLink]="['user']">Amount users: {{amountUsers}}</h3>
+  </div>
+  <div class="headline"> 
+    <h1>Easy customer managment for small business</h1>
+  </div>
+  <img class="aot" src="./assets/img/business-pic.jpg" alt="Bussines pic">
+</section>
