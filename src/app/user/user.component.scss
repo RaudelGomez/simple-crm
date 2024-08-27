@@ -1,5 +1,6 @@
 .add-user-button{
   position: absolute;
+  z-index: 100;
   right: 56px;
   bottom: 56px;
 }
@@ -33,6 +34,20 @@
       &:hover{
         background-color: rgba(0, 0, 0, 0.04);
         transition: all 75ms ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .user-table {
+    tbody{
+      tr{
+        td{
+          mat-card-content{
+            padding: 0 8px !important;
+          }
+        }
       }
     }
   }
