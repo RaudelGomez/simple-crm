@@ -74,10 +74,20 @@ mat-grid-tile {
   h1{
     font-size: 32px  !important;
   }
+  .arrow-container{
+    display: none;
+  }
+  section{
+    position: relative;
+    height: 75vh;
+  }
 }
 
 @media (max-height: 420px) {
   .arrow-container{
     display: none !important;
+  }
+  h1{
+    font-size: 24px !important;
   }
 }
