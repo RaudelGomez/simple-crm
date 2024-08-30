@@ -24,9 +24,10 @@ describe('DialogAddUserComponent', () => {
       imports: [DialogAddUserComponent, BrowserAnimationsModule],
       providers: [
         UserService,
-        { provide: Firestore, useValue: spy }, // Proveer el mock de Firestore
-        { provide: MatDialogRef, useClass: MatDialogRefMock }, // Proveer el mock de MatDialogRef
-        { provide: MAT_DIALOG_DATA, useValue: {} } // Proveer datos de diálogo, si es necesario
+        { provide: Firestore, useValue: spy }, // Provide the Firestore mock
+        { provide: MatDialogRef, useClass: MatDialogRefMock }, // Providing the MatDialogRef mock
+
+        { provide: MAT_DIALOG_DATA, useValue: {} } // Provide dialog data, if needed
       ]
     })
     .compileComponents();

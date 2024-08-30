@@ -27,7 +27,6 @@ export class UserService {
         return items.map(item => this.toJSON(item)); // Transform data in a User[]
       })
     ).subscribe(users => {
-      // console.log(users);
       this.usersSubject.next(users); // Update the data to the BehaviourSubject
     });
   }

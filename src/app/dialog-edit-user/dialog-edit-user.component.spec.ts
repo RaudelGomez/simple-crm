@@ -24,9 +24,9 @@ describe('DialogEditUserComponent', () => {
       imports: [DialogEditUserComponent, BrowserAnimationsModule],
       providers: [
         UserService,
-        { provide: Firestore, useValue: spy }, // Proveer el mock de Firestore
-        { provide: MatDialogRef, useClass: MatDialogRefMock }, // Proveer el mock de MatDialogRef
-        { provide: MAT_DIALOG_DATA, useValue: {} } // Proveer datos de diálogo, si es necesario
+        { provide: Firestore, useValue: spy }, 
+        { provide: MatDialogRef, useClass: MatDialogRefMock }, 
+        { provide: MAT_DIALOG_DATA, useValue: {} } 
       ]
     })
     .compileComponents();

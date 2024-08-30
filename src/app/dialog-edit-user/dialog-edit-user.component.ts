@@ -25,8 +25,6 @@ export class DialogEditUserComponent {
   birthDateNumber!: number;
   birthDate!: Date;
 
-  // this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0 ; 
-
   constructor(public userService: UserService, public dialogRef: MatDialogRef<DialogEditUserComponent>){}
 
   ngOnInit(): void {
