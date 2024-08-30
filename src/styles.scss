@@ -3,8 +3,9 @@
 html, body { height: 100%; }
 
 body { 
-  margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .cursor-pointer{

@@ -15,7 +15,7 @@ section{
     z-index: -100;
   }
   .headline{
-    margin-top: -240px;
+    margin-top: -600px;
     h1{
       text-align: center;
       font-size: 64px;
@@ -70,6 +70,12 @@ mat-grid-tile {
   border-radius: 24px !important;
 }
 
+@media (min-width: 1440px) {
+  .headline{
+    margin-top: -410px !important;
+  }
+}
+
 @media (max-width: 1200px) {
   h1{
     font-size: 32px  !important;
@@ -83,11 +89,23 @@ mat-grid-tile {
   }
 }
 
+@media (max-width: 950px) {
+  .headline{
+    margin-top: -420px !important;
+  }
+}
+
 @media (max-height: 420px) {
   .arrow-container{
     display: none !important;
   }
   h1{
     font-size: 24px !important;
+  }
+}
+
+@media (max-height: 800px) {
+  .headline{
+    display: none !important;
   }
 }
