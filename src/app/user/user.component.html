@@ -16,10 +16,10 @@
     <tbody>
       @for (user of (this.userService.users$ | async); track $index) {
         <tr>
-          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
-          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.email}}</mat-card-content></td>
-          <td [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.city}}</mat-card-content></td>
-          <td><mat-card-content>
+          <td data-cy="user-name" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
+          <td data-cy="user-email" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.email}}</mat-card-content></td>
+          <td data-cy="user-city" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.city}}</mat-card-content></td>
+          <td data-cy="user-delete"><mat-card-content>
             <mat-icon (click)="this.userService.deleteUser('users', user.id)" >delete</mat-icon>
           </mat-card-content></td>
         </tr>        

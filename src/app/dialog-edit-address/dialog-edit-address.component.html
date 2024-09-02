@@ -8,25 +8,25 @@
     <div>
       <mat-form-field appearance="outline" class="width-100">
         <mat-label>Street + House No.</mat-label>
-        <input [disabled]="this.userService.loading" [(ngModel)]="user.street" matInput placeholder="Street + House No.">
+        <input name="address" [disabled]="this.userService.loading" [(ngModel)]="user.street" matInput placeholder="Street + House No.">
         <!-- <mat-hint>Please enter the address</mat-hint> -->
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline" class="mr-16">
         <mat-label>Zip code</mat-label>
-        <input [disabled]="this.userService.loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code">
+        <input name="zipCode"  [disabled]="this.userService.loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code">
         <!-- <mat-hint>Please enter the Zip code</mat-hint> -->
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>City</mat-label>
-        <input [disabled]="this.userService.loading" [(ngModel)]="user.city" matInput placeholder="City">
+        <input name="city" [disabled]="this.userService.loading" [(ngModel)]="user.city" matInput placeholder="City">
         <!-- <mat-hint>Please enter the City</mat-hint> -->
       </mat-form-field>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button [disabled]="this.userService.loading" mat-button (click)="dialogRef.close()">Cancel</button>
-    <button [disabled]="this.userService.loading" mat-button  cdkFocusInitial (click)="saveUser()">Save</button>
+    <button data-cy="close-dialog" [disabled]="this.userService.loading" mat-button (click)="dialogRef.close()">Cancel</button>
+    <button data-cy="save-user-data" [disabled]="this.userService.loading" mat-button  cdkFocusInitial (click)="saveUser()">Save</button>
   </mat-dialog-actions>
 </section>
