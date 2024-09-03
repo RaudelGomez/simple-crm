@@ -1,5 +1,5 @@
 <button mat-fab color="primary" class="add-user-button" matTooltip="Add user"
-[matTooltipPosition]="position.value!" (click)="openDialog()">
+[matTooltipPosition]="position.value!" data-cy="btn-create-user" (click)="openDialog()">
   <mat-icon>add</mat-icon>
 </button>
 
@@ -19,8 +19,8 @@
           <td data-cy="user-name" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.firstName}} {{user.lastName}}</mat-card-content></td>
           <td data-cy="user-email" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.email}}</mat-card-content></td>
           <td data-cy="user-city" [routerLink]="['/user/'+ user.id]"><mat-card-content>{{user.city}}</mat-card-content></td>
-          <td data-cy="user-delete"><mat-card-content>
-            <mat-icon (click)="this.userService.deleteUser('users', user.id)" >delete</mat-icon>
+          <td><mat-card-content>
+            <mat-icon data-cy="user-delete" (click)="this.userService.deleteUser('users', user.id)" >delete</mat-icon>
           </mat-card-content></td>
         </tr>        
       }

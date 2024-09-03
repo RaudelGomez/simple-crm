@@ -7,9 +7,9 @@ describe('dashboard', () => {
     cy.get('[data-cy=edit-name-pin]').click()
     cy.get('[data-cy=open-edit-name]').click()
     cy.get('input[name="user-name"]').clear({ force: true })
-    .type('Test', { force: true });
+    .type('Max', { force: true });
     cy.get('input[name="user-lastname"]').clear({ force: true })
-    .type('Test last name', { force: true })
+    .type('Mustermann', { force: true })
     cy.get('input[name="user-email"]').clear({ force: true })
     .type('max@gmail.com', { force: true })
     cy.get('[data-cy=select-date]').click()
@@ -31,7 +31,7 @@ describe('dashboard', () => {
     cy.get('input[name="city"]').clear({ force: true })
     .type('Berlin', { force: true })
     cy.get('[data-cy=save-user-data]').click()
-    
+    cy.get('[data-cy=link-user]').click()
   })
 })
 
