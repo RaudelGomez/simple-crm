@@ -21,10 +21,22 @@ jobs:
         run: npx ng build
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
+      # Iniciar el servidor en segundo plano
+      - name: Start Angular app
+        run: |
+          npx ng serve --port 4200 &
+        env:
+          CI: true
+
+      # Asegurarse de que el servidor esté corriendo antes de continuar
+      - name: Wait for Angular app to be ready
+        run: |
+          npx wait-on http://localhost:4200
+
+      # Ejecutar pruebas de Cypress
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
         env:
-          # Necesario para Cypress en entornos CI
-          CI: true
+          CYPRESS_baseUrl: 'http://localhost:4200'
