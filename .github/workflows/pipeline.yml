@@ -17,11 +17,11 @@ jobs:
           node-version: 18
           
       # Limpiar el caché de npm y reinstalar dependencias
-      - name: Clean npm cache and reinstall dependencies
-        run: |
-          rm -rf node_modules
-          rm package-lock.json
-          npm install --no-audit --no-fund --no-optional
+      # - name: Clean npm cache and reinstall dependencies
+      #   run: |
+      #     rm -rf node_modules
+      #     rm package-lock.json
+      #     npm install --no-audit --no-fund --no-optional
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
