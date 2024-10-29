@@ -42,7 +42,11 @@ testem.log
 Thumbs.db
 
 # Firebase
+<<<<<<< HEAD
 /src/environment.ts
+=======
+/src/environment/environment.ts
+>>>>>>> b911695 (test actions)
 .firebase
 *-debug.log
 .runtimeconfig.json
