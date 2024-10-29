@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,23 +15,31 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+          
+      # Instalar Angular CLI globalmente para asegurar que `ng serve` funcione correctamente
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
       - name: Install dependencies
         run: npm install  --no-audit --no-fund --no-optional
+
       - name: Build
         run: npx ng build
+
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
-      # Iniciar el servidor en segundo plano
+
+      # Iniciar el servidor Angular en segundo plano
       - name: Start Angular app
         run: |
           npx ng serve --host 0.0.0.0 --port 4200 &
+          echo "Angular app is starting..."
         env:
           CI: true
 
-      # Asegurarse de que el servidor esté corriendo antes de continuar
+      # Esperar a que el servidor esté disponible antes de continuar
       - name: Wait for Angular app to be ready
-        run: |
-          npx wait-on http://localhost:4200
+        run: npx wait-on http://localhost:4200 --timeout 120000
 
       # Ejecutar pruebas de Cypress
       - name: Run Cypress tests
