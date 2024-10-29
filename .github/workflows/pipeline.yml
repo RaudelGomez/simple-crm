@@ -27,3 +27,12 @@ jobs:
           start: npm run start
           wait-on: http://localhost:4200
           command: npm run test:e2e
+      - name: Deploy to All-Inkl
+        uses: appleboy/scp-action@master
+        with:
+            host: w01f54cf.kasserver.com  # El host que encontraste
+            username: f016c609  # Tu nombre de usuario SSH (reemplaza con tu usuario)
+            key: ${{ secrets.SSH_PRIVATE_KEY }}  # Usa el secreto para tu clave privada SSH
+            port: 22  # Generalmente es 22
+            source: "dist/simple-crm/browser/**"  # Cambia esto al nombre de tu aplicación generada por Angular
+            target: "/www/raudel-gomez-smith.de/simple-crm/"  # Cambia esto a la ruta de destino en tu servidor
