@@ -24,7 +24,7 @@ jobs:
       # Iniciar el servidor en segundo plano
       - name: Start Angular app
         run: |
-          npx ng serve --port 4200 &
+          npx ng serve --host 0.0.0.0 --port 4200 &
         env:
           CI: true
 
