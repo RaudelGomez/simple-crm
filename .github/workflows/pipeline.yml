@@ -17,3 +17,7 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install  --no-audit --no-fund --no-optional
+      - name: Build
+        run: ng build
+      - name: Test
+        run: ng test
