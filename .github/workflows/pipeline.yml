@@ -21,4 +21,9 @@ jobs:
         run: npx ng build
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
-      
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start
+          wait-on: http://localhost:4200
+          command: npm run test:e2e
