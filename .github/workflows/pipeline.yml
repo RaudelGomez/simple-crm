@@ -32,7 +32,7 @@ jobs:
         with:
             host: w01f54cf.kasserver.com  # El host que encontraste
             username: f016c609  # Tu nombre de usuario SSH (reemplaza con tu usuario)
-            key: ${{ secrets.SSH_PRIVATE_KEY }}  # Usa el secreto para tu clave privada SSH
+            key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDRPPf5012y/UGnblmPjuP1OzY0mwBhTqQ509oiw8AHwsa5V+zR9WG0c27OuzzhxZCPw2fSd2twPcSvvbVdPcgoLXf29DbIpE9TK9eyzgwDbHZZhjGh/ZEbWLzJRbeqMPmL0UyAkj12+u1KtnMtqDTZ+Hp/Jl2XUMIqtkUWmGLXP+syPhyE2lq4PzTugwVocG3QNjI/Py9wD8wBP2hX1J6JVR94VZceAywLUluniqQmVQUJWTW5d5hZHnmzO4js8x9d0VHRnu/BMiM63tR9UyaWTA7yPavCvIsCMXntW62k7fP2boVgtq2ac7nMpu9+8+0Pr4fiJ0A8SUT/EmHwWIgVRGtnn6U+8AjatZYApIYdXc513xtoTX1Fhc0QiSxvdOaaZABAxlBJrMpKaHtcuBFObdmUyAbT6dsPrUcuHCHGjl3SpP+EpGGHqQ4oyF+ksZ4x5nnzSauPWQVxGJjySayexM+JHxvxcDc/jvH3JJiCt7nPvDZN1gqGSkPgVzmERns= gomez@Raudels-Laptop  # Usa el secreto para tu clave privada SSH
             port: 22  # Generalmente es 22
             source: "dist/simple-crm/browser/**"  # Cambia esto al nombre de tu aplicación generada por Angular
             target: "/www/raudel-gomez-smith.de/simple-crm/"  # Cambia esto a la ruta de destino en tu servidor
