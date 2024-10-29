@@ -21,3 +21,10 @@ jobs:
         run: npx ng build
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+        env:
+          # Necesario para Cypress en entornos CI
+          CI: true
