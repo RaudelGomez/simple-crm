@@ -24,14 +24,14 @@ jobs:
       # Iniciar el servidor en segundo plano
       - name: Start Angular app
         run: |
-          npx ng serve --host 0.0.0.0 --port 4200 &
+          npx ng serve --host 0.0.0.0 --port 4200 --watch=false &
         env:
           CI: true
 
       # Asegurarse de que el servidor esté corriendo antes de continuar
-      # - name: Wait for Angular app to be ready
-      #   run: |
-      #     npx wait-on http://localhost:4200
+      - name: Wait for Angular app to be ready
+        run: |
+          npx wait-on http://localhost:4200
 
       # Ejecutar pruebas de Cypress
       - name: Run Cypress tests
@@ -40,3 +40,4 @@ jobs:
           browser: chrome
         env:
           CYPRESS_baseUrl: 'http://localhost:4200'
+          DEBUG: 'cypress:*'
