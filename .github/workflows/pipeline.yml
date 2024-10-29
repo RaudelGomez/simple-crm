@@ -20,4 +20,4 @@ jobs:
       - name: Build
         run: npx ng build
       - name: Test
-        run: npx ng test
+        run: npx ng test --watch=false --browsers=ChromeHeadless
