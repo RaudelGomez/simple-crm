@@ -16,12 +16,15 @@ jobs:
         with:
           node-version: 18
           
-      # Instalar Angular CLI globalmente para asegurar que `ng serve` funcione correctamente
+      # Limpiar el caché de npm y reinstalar dependencias
+      - name: Clean npm cache and reinstall dependencies
+        run: |
+          rm -rf node_modules
+          rm package-lock.json
+          npm install --no-audit --no-fund --no-optional
+
       - name: Install Angular CLI
         run: npm install -g @angular/cli
-
-      - name: Install dependencies
-        run: npm install  --no-audit --no-fund --no-optional
 
       - name: Build
         run: npx ng build
@@ -32,7 +35,7 @@ jobs:
       # Iniciar el servidor Angular en segundo plano
       - name: Start Angular app
         run: |
-          npx ng serve --host 0.0.0.0 --port 4200 &
+          npx ng serve --host 0.0.0.0 --port 4200 --disable-host-check &
           echo "Angular app is starting..."
         env:
           CI: true
@@ -48,3 +51,4 @@ jobs:
           browser: chrome
         env:
           CYPRESS_baseUrl: 'http://localhost:4200'
+
