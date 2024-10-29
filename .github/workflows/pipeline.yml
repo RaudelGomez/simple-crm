@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,38 +15,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          
-      - name: Clean npm cache and reinstall dependencies
-        run: |
-          rm -rf node_modules
-          rm package-lock.json
-          npm install --no-audit --no-fund --no-optional
-
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
-
+      - name: Install dependencies
+        run: npm install  --no-audit --no-fund --no-optional
       - name: Build
         run: npx ng build
-
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
-
-      # Iniciar el servidor Angular en segundo plano
+      # Iniciar el servidor en segundo plano
       - name: Start Angular app
         run: |
-          npx ng serve --host 0.0.0.0 --port 4200 --disable-host-check &
-          echo "Angular app is starting..."
-          sleep 10  # Tiempo adicional para asegurarse de que el servidor se inicie
+          npx ng serve --host 0.0.0.0 --port 4200 &
         env:
           CI: true
 
-      # Opción para omitir la espera
+      # Asegurarse de que el servidor esté corriendo antes de continuar
       # - name: Wait for Angular app to be ready
-      #   run: npx wait-on http://localhost:4200 --timeout 300000  # Aumentar el timeout a 5 minutos
-
-      # Comprobar si el servidor está corriendo
-      - name: Check if server is running
-        run: curl -f http://localhost:4200 || echo "Server not running"
+      #   run: |
+      #     npx wait-on http://localhost:4200
 
       # Ejecutar pruebas de Cypress
       - name: Run Cypress tests
@@ -55,4 +40,3 @@ jobs:
           browser: chrome
         env:
           CYPRESS_baseUrl: 'http://localhost:4200'
-
